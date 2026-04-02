@@ -60,12 +60,13 @@ export async function POST(req: NextRequest) {
       ];
     }
 
-    const stream = await client.messages.stream({
-      model: "claude-opus-4-6",
-      max_tokens: 4096,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const stream = await (client.messages.stream as any)({
+      model: "claude-opus-4-5",
+      max_tokens: 16000,
       system: SYSTEM_PROMPT,
       messages: userMessages,
-      thinking: { type: "adaptive" },
+      thinking: { type: "enabled", budget_tokens: 10000 },
     });
 
     const encoder = new TextEncoder();
