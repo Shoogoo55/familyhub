@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #f6f9f6;
+  color: #1a2a1a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c6dac6;
+  border-radius: 2px;
+}
+
+/* iOS safe areas */
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+}
+
+/* Smooth page transitions */
+.page-enter {
+  animation: fadeSlideIn 0.2s ease-out;
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bottom nav blur */
+.nav-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(246, 249, 246, 0.92);
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-2xl shadow-card border border-sage-100;
+}
+
+/* Input base styles */
+.input-base {
+  @apply w-full bg-sage-50 border border-sage-200 rounded-xl px-4 py-3 text-sm
+         placeholder:text-sage-400 focus:outline-none focus:ring-2 focus:ring-sage-300
+         focus:border-sage-400 transition-all;
+}
+
+/* Button base */
+.btn-primary {
+  @apply bg-sage-500 hover:bg-sage-600 active:bg-sage-700 text-white font-medium
+         px-4 py-2.5 rounded-xl transition-all text-sm shadow-sm;
+}
+.btn-ghost {
+  @apply text-sage-600 hover:bg-sage-100 active:bg-sage-200 font-medium
+         px-4 py-2.5 rounded-xl transition-all text-sm;
+}
+.btn-danger {
+  @apply text-rose-600 hover:bg-rose-50 active:bg-rose-100 font-medium
+         px-4 py-2.5 rounded-xl transition-all text-sm;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  accent-color: #4f7d4f;
+}
+
+/* Animate check */
+@keyframes checkPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.check-pop {
+  animation: checkPop 0.15s ease-out;
+}
+
+/* Skeleton loading */
+.skeleton {
+  @apply animate-pulse bg-sage-100 rounded-lg;
+}
