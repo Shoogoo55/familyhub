@@ -1,3 +1,7 @@
+"use client";
+
+import Link from "next/link";
+import { Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface PageHeaderProps {
@@ -6,6 +10,7 @@ interface PageHeaderProps {
   emoji?: string;
   action?: React.ReactNode;
   className?: string;
+  showSettings?: boolean;
 }
 
 export default function PageHeader({
@@ -14,6 +19,7 @@ export default function PageHeader({
   emoji,
   action,
   className,
+  showSettings = true,
 }: PageHeaderProps) {
   return (
     <header
@@ -33,7 +39,18 @@ export default function PageHeader({
           <p className="text-sm text-sage-500 mt-0.5">{subtitle}</p>
         )}
       </div>
-      {action && <div className="mt-1">{action}</div>}
+      <div className="flex items-center gap-2 mt-1">
+        {action && <div>{action}</div>}
+        {showSettings && (
+          <Link
+            href="/settings"
+            className="p-2 rounded-xl text-sage-400 hover:text-sage-600 hover:bg-sage-50 transition-all"
+            title="Familie teilen"
+          >
+            <Settings size={18} />
+          </Link>
+        )}
+      </div>
     </header>
   );
 }
