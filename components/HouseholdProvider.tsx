@@ -27,6 +27,15 @@ export default function HouseholdProvider({
 
   useEffect(() => {
     async function init() {
+      // Check for ?join= parameter in URL to join existing household
+      const params = new URLSearchParams(window.location.search);
+      const joinId = params.get("join");
+      if (joinId) {
+        setHouseholdId(joinId);
+        // Remove param from URL without reload
+        window.history.replaceState({}, "", window.location.pathname);
+      }
+
       let id = getHouseholdId();
 
       if (!id) {

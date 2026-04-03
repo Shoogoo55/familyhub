@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingCart, CalendarDays, CheckSquare, Sparkles, Tag } from "lucide-react";
+import { ShoppingCart, CalendarDays, CheckSquare, Tag, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { href: "/", icon: ShoppingCart, label: "Einkauf" },
   { href: "/meals", icon: CalendarDays, label: "Woche" },
   { href: "/todos", icon: CheckSquare, label: "Todos" },
-  { href: "/ai", icon: Sparkles, label: "KI-Koch" },
   { href: "/deals", icon: Tag, label: "Angebote" },
+  { href: "/settings", icon: Settings, label: "Teilen" },
 ];
 
 export default function BottomNav() {

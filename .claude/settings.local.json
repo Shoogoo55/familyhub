@@ -2,7 +2,17 @@
   "permissions": {
     "allow": [
       "Read(//Users/phillip/**)",
-      "Read(//Users/phillip/Library/**)"
+      "Read(//Users/phillip/Library/**)",
+      "Bash(git fetch:*)",
+      "Bash(git merge:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npm run:*)",
+      "Bash(/usr/local/bin/npm run:*)",
+      "Read(//usr/local/bin/**)",
+      "Bash(ls ~/.nvm/versions/node/*/bin/node)",
+      "Read(//usr/**)"
     ]
   }
 }

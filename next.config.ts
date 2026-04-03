@@ -7,8 +7,6 @@ const nextConfig: NextConfig = {
       { hostname: "www.rewe.de" },
     ],
   },
-  // Disable static prerendering for pages that use Supabase
-  output: undefined,
 };
 
 export default nextConfig;
